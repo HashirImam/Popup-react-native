@@ -15,6 +15,18 @@ const popupList = [
     id: 3,
     name: "Sweets"
   },
+  {
+    id: 4,
+    name: "Bengali"
+  },
+  {
+    id: 5,
+    name: "Italian"
+  },
+  {
+    id: 6,
+    name: "Chinese"
+  },
   
 ]
 

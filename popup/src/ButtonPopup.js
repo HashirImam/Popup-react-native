@@ -45,7 +45,7 @@ export class BottomPopup extends React.Component {
     renderContent = () => {
         const {data} = this.props
         return (
-            <View>
+            <View style={{marginBottom: 20}}>
                 <FlatList
                     style={{marginBottom: 20}}
                     showsVerticalScrollIndicator= {false}
