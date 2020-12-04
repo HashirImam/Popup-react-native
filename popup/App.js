@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState} from 'react'
 import { StyleSheet, Text, View, SafeAreaView, StatusBar, TouchableWithoutFeedback } from 'react-native'
 import {BottomPopup} from './src/ButtonPopup'
 
@@ -20,7 +20,14 @@ const popupList = [
 
 const App = () => {
 
+  const [filter, setFilter] = useState("none")
+
   let popupRef = React.createRef()
+
+  const changeFilter = (name) => {
+    setFilter(name);
+    popupRef.close()
+  }
 
   const onShowPopup = () => {
     popupRef.show()
@@ -40,7 +47,16 @@ const App = () => {
             ref={(target) => popupRef = target}
             onTouchOutside={onClosePopup}
             data={popupList}
+            changeFilter={changeFilter}
       />
+      <View>
+        <Text style={{fontSize: 25}}>
+          Filter Type: 
+        </Text>
+        <Text style={{fontSize: 25}}>
+          {filter}
+        </Text>
+      </View>
       
     </View>
   )

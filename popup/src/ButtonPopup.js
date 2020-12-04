@@ -33,8 +33,8 @@ export class BottomPopup extends React.Component {
     renderTitle = () => {
         const {title} = this.props
         return (
-            <View>
-                <Text style={{color:'#182E44', fontSize: 20, fontWeight: '500', margin: 15}}>
+            <View style={{alignItems: "center"}}>
+                <Text style={{color:'#182E44', fontSize: 25, fontWeight: '500', marginTop: 15, marginBottom: 30}}>
                     {title}
                 </Text>
                 
@@ -63,21 +63,24 @@ export class BottomPopup extends React.Component {
         )
     }
 
-    renderItem = (item) => {
+    renderItem = ({item}) => {
         return (
-            <View>
-                <Text>{item.name}</Text>
+            <View style={{height: 50, flex: 1, alignItems: "flex-start", justifyContent: "center", marginLeft: 20}}>
+                <Text style={{fontSize: 20, fontWeight: "normal", color: "#182E44"}} onPress={() => this.props.changeFilter(item.name)}>{item.name}</Text>
             </View>
         )
     }
 
     renderSeparator = () => {
+
+        return(
         <View 
             style={{
                 opacity: 0.1,
                 backgroundColor: "#182E44",
                 height: 1
             }} />
+        )
 
             
     }
@@ -97,7 +100,7 @@ export class BottomPopup extends React.Component {
                     <View style={{backgroundColor:"#FFFFFF", width: "100%", borderTopEndRadius: 10, borderTopLeftRadius: 10, paddingHorizontal: 10, maxHeight: devHeight*0.4}}>
                         
                         {this.renderTitle()}
-                        {/* {this.renderContent()} */}
+                        {this.renderContent()}
                     </View>
 
 
